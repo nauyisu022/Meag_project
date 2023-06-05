@@ -1,0 +1,4 @@
+repository "宿舍之谜1.1@serendi-pity@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"

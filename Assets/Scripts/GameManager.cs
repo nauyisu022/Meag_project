@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public bool stage1IsOver = false;
     public static GameManager Instance { get; private set; }
 
     private void Awake()
