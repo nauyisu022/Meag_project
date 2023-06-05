@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PasswordMessage
   - Water
   - UI
   - 
@@ -40,4 +40,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: PasswordMessage
+    uniqueID: 3294968257
+    locked: 0
+  - name: UI
+    uniqueID: 3012284421
     locked: 0
