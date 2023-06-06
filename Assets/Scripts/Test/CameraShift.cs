@@ -1,11 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraShift : MonoBehaviour
 {
-    public List<Camera> cameras = new List<Camera>();
-    public Camera currentCamera=null;
+    public List<GameObject> cameras = new List<GameObject>();
+    public static Camera currentCamera=null;
     public int curIndex=0;
     public bool isRendered = false;
 
@@ -22,11 +23,12 @@ public class CameraShift : MonoBehaviour
         }
         if (!isRendered)
         {
-            foreach(Camera c in cameras)
+            foreach(GameObject c in cameras)
             {
-                c.enabled= false;
+                c.SetActive(false);
             }
-            cameras[curIndex].enabled = true;
+            cameras[curIndex].SetActive(true);
+            currentCamera = cameras[curIndex].GetComponent<Camera>();
             isRendered = true;
         }
         if (Input.GetKeyDown(KeyCode.S))
@@ -37,8 +39,9 @@ public class CameraShift : MonoBehaviour
             {
                 curIndex= 0;
             }
-            cameras[lastIndex].enabled = false;
-            cameras[curIndex].enabled= true;
+            cameras[lastIndex].SetActive(false);
+            cameras[curIndex].SetActive(true);
+            currentCamera = cameras[curIndex].GetComponent<Camera>();
         }
     }
 }
