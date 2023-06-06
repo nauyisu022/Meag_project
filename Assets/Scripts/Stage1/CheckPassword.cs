@@ -27,12 +27,18 @@ public class CheckPassword : MonoBehaviour
             correctText.SetActive(true);
             Invoke("UnshowCorrectText", 1.0f);
             Invoke("PasswordCorrect", 1.5f);
+            Invoke("Destroy", 1.6f);
         }
         else
         {
             wrongText.SetActive(true);
             Invoke("UnshowWrongText", 1.0f);
+            Invoke("Destroy", 1.1f);
         }
+    }
+    void Destroy()
+    {
+        Destroy(this.gameObject);
     }
     void UnshowCorrectText()
     {
@@ -45,5 +51,6 @@ public class CheckPassword : MonoBehaviour
     void PasswordCorrect()
     {
         //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        SceneManager.Instance.passwordIsCorrect = true;
     }
 }
