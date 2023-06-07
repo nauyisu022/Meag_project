@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockTrigger : BagBaseItem
+public class MagazineTrigger : BagBaseItem
 {
     bool stage1to2 = false;
     string _tag = null;
@@ -17,18 +17,25 @@ public class RockTrigger : BagBaseItem
     void Awake()
     {
         Init();
-        updateItemInfo(_tag, _name, _description, checkText1, image1, false);
+        updateItemInfo(_tag,_name, _description, checkText1, image1, false);
     }
     void Init()
     {
-        _tag = "花岗岩";
-        _name = "花岗岩";
-        _description = "花岗岩";
-        checkText1 = "一块普通的石头，颜色怪怪的，看不出有什么特别之处。";
-        checkText2 = "火山爆发后，沸腾的岩浆凝结而成的多孔形石材。一动不动的石头竟有着滚烫的过去。";
-        image1 = Resources.Load<Sprite>("花岗岩ai 1");
-        image2 = Resources.Load<Sprite>("花岗岩ai 1");
+        _tag = "国家地理杂志";
+        _name = "国家地理杂志";
+        _description = "国家地理杂志";
+
+        checkText1 = "一本保存良好的杂志。纸张边缘因老旧而泛黄。";
+        checkText2 = "令人印象深刻的一期国家地理，介绍了雷电现象的起源和成因，读来仿佛有雷声在心中轰鸣。将这一期特地收藏，以纪念曾经那闪电般耀眼的理想。";
+        image1 = Resources.Load<Sprite>("国家地理杂志");
+        image2 = Resources.Load<Sprite>("国家地理杂志");
     }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -36,8 +43,8 @@ public class RockTrigger : BagBaseItem
     }
     public void ChangeState()
     {
-        //获得地球仪：1-2
-        if(ItemManager.Instance.objMap.ContainsKey("地球仪"))
+        //获得地球仪和火山岩：1-2
+        if (ItemManager.Instance.objMap.ContainsKey("地球仪") && ItemManager.Instance.objMap.ContainsKey("花岗岩"))
         {
             curState = 2;
             if (stage1to2 == false)
@@ -45,7 +52,7 @@ public class RockTrigger : BagBaseItem
                 updateItemInfo(_tag, _name, _description, checkText2, image2, false);
                 stage1to2 = true;
             }
-                
+
         }
 
     }

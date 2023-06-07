@@ -27,7 +27,7 @@ public class BagBaseItem : MonoBehaviour, IPointerClickHandler
     }
 
     // 更改当前背包item信息，如果正在展示当前item，那么同步更改展示栏内容
-    public void updateItemInfo(string name=null, string description=null, string checkText=null, Sprite sprite=null)
+    public void updateItemInfo(string tag = null, string name=null, string description=null, string checkText=null, Sprite sprite=null, bool firstTime = false)
     {
         if (tag != null)
         {
@@ -50,7 +50,8 @@ public class BagBaseItem : MonoBehaviour, IPointerClickHandler
             itemSprite = sprite;
         }
         ItemManager itemManager = ItemManager.Instance;
-        itemManager.updateItemUI(gameObject, false);
+        if(firstTime) itemManager.updateItemUI(gameObject, true);
+        else itemManager.updateItemUI(gameObject, false);
     }
 
     public virtual void destroy()

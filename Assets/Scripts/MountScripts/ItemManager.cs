@@ -48,7 +48,8 @@ public class ItemManager: MonoBehaviour
         {
             obj = Instantiate(prefab, LoveGrid.transform);
         }
-        objMap.Add(prefab.GetComponent<BagBaseItem>().itemTag, obj);
+        Debug.Log(obj.GetComponent<BagBaseItem>().itemTag);
+        objMap.Add(obj.GetComponent<BagBaseItem>().itemTag, obj);
     }
     // 更新展示栏所存储的信息，同时根据变量needDisplay判断是否需要显示出展示栏
     public void updateItemUI(GameObject item, bool needDisplay)
