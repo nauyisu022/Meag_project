@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockTrigger : BagBaseItem
+public class CupTrigger : BagBaseItem
 {
     bool stage1to2 = false;
     string _tag = null;
@@ -21,14 +21,21 @@ public class RockTrigger : BagBaseItem
     }
     void Init()
     {
-        _tag = "花岗岩";
-        _name = "花岗岩";
-        _description = "花岗岩";
-        checkText1 = "一块普通的石头，颜色怪怪的，看不出有什么特别之处。";
-        checkText2 = "艮（土），火山爆发后，沸腾的岩浆凝结而成的多孔形石材。稳定的、一动不动的石头竟有着滚烫的过去。";
-        image1 = Resources.Load<Sprite>("花岗岩ai 1");
-        image2 = Resources.Load<Sprite>("花岗岩ai 1");
+        _tag = "杯子";
+        _name = "杯子";
+        _description = "杯子";
+
+        checkText1 = "傻乎乎的情侣款马克杯，只有热恋中的人才会喜欢这种风格吧。杯底有一串意义不明的数字。";
+        checkText2 = "如今只剩下一只的情侣款杯子。杯底当然是某人的生日。";
+        image1 = Resources.Load<Sprite>("杯子");
+        image2 = Resources.Load<Sprite>("杯子");
     }
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -36,8 +43,8 @@ public class RockTrigger : BagBaseItem
     }
     public void ChangeState()
     {
-        //获得地球仪：1-2
-        if(ItemManager.Instance.objMap.ContainsKey("地球仪"))
+        //解开拼图：1-2
+        if (SceneManager.Instance.puzzleIsCorrect == true)
         {
             curState = 2;
             if (stage1to2 == false)
@@ -45,7 +52,7 @@ public class RockTrigger : BagBaseItem
                 updateItemInfo(_tag, _name, _description, checkText2, image2, false);
                 stage1to2 = true;
             }
-                
+
         }
 
     }

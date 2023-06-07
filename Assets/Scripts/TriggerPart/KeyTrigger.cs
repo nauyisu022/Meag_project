@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockTrigger : BagBaseItem
+public class KeyTrigger : BagBaseItem
 {
     bool stage1to2 = false;
     string _tag = null;
@@ -21,14 +21,21 @@ public class RockTrigger : BagBaseItem
     }
     void Init()
     {
-        _tag = "花岗岩";
-        _name = "花岗岩";
-        _description = "花岗岩";
-        checkText1 = "一块普通的石头，颜色怪怪的，看不出有什么特别之处。";
-        checkText2 = "艮（土），火山爆发后，沸腾的岩浆凝结而成的多孔形石材。稳定的、一动不动的石头竟有着滚烫的过去。";
-        image1 = Resources.Load<Sprite>("花岗岩ai 1");
-        image2 = Resources.Load<Sprite>("花岗岩ai 1");
+        _tag = "钥匙扣";
+        _name = "钥匙扣";
+        _description = "钥匙扣";
+
+        checkText1 = "记不清用途的钥匙。看起来很容易弄丢。钥匙扣是个平平无奇的旅游纪念品，上面似乎写有日期。";
+        checkText2 = "钥匙：高中班级人手一把的钥匙，独立的置物柜是学生时代少有的隐私。钥匙扣：那年夏天，我第一次独自攀登XX山，看到的美景永生难忘。";
+        image1 = Resources.Load<Sprite>("钥匙扣ai");
+        image2 = Resources.Load<Sprite>("钥匙扣ai");
     }
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -36,8 +43,8 @@ public class RockTrigger : BagBaseItem
     }
     public void ChangeState()
     {
-        //获得地球仪：1-2
-        if(ItemManager.Instance.objMap.ContainsKey("地球仪"))
+        //返回宿舍：1-2
+        if (SceneManager.Instance.jumpToClassroom == true)
         {
             curState = 2;
             if (stage1to2 == false)
@@ -45,7 +52,7 @@ public class RockTrigger : BagBaseItem
                 updateItemInfo(_tag, _name, _description, checkText2, image2, false);
                 stage1to2 = true;
             }
-                
+
         }
 
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RockTrigger : BagBaseItem
+public class GlobeTrigger : BagBaseItem
 {
     bool stage1to2 = false;
     string _tag = null;
@@ -21,13 +21,13 @@ public class RockTrigger : BagBaseItem
     }
     void Init()
     {
-        _tag = "花岗岩";
-        _name = "花岗岩";
-        _description = "花岗岩";
-        checkText1 = "一块普通的石头，颜色怪怪的，看不出有什么特别之处。";
-        checkText2 = "艮（土），火山爆发后，沸腾的岩浆凝结而成的多孔形石材。稳定的、一动不动的石头竟有着滚烫的过去。";
-        image1 = Resources.Load<Sprite>("花岗岩ai 1");
-        image2 = Resources.Load<Sprite>("花岗岩ai 1");
+        _tag = "地球仪";
+        _name = "地球仪";
+        _description = "地球仪";
+        checkText1 = "不知道什么时候买的地球仪，多少有点占地方了。";
+        checkText2 = "坤（地），因其代表着地球的包容和承载。坤为地，无限宽广，厚重坚实，孕育万物。“小时候在听完一场地理科普讲座后买的，脚下厚重坚实的大地原来竟是一个滚圆的星球。认识世界的第一步，梦想最初的模样。”";
+        image1 = Resources.Load<Sprite>("地球仪");
+        image2 = Resources.Load<Sprite>("地球仪");
     }
     // Update is called once per frame
     void Update()
@@ -37,7 +37,7 @@ public class RockTrigger : BagBaseItem
     public void ChangeState()
     {
         //获得地球仪：1-2
-        if(ItemManager.Instance.objMap.ContainsKey("地球仪"))
+        if (ItemManager.Instance.objMap.ContainsKey("花岗岩"))
         {
             curState = 2;
             if (stage1to2 == false)
@@ -45,7 +45,7 @@ public class RockTrigger : BagBaseItem
                 updateItemInfo(_tag, _name, _description, checkText2, image2, false);
                 stage1to2 = true;
             }
-                
+
         }
 
     }
