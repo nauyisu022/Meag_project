@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Show8 : SceneBaseItem
 {
     //int count = 0;
+    public GameObject button;
     public GameObject text;
     public override void OnPointerClick(PointerEventData eventData)
     {
@@ -20,6 +21,7 @@ public class Show8 : SceneBaseItem
         {
             text.SetActive(true);
             text.GetComponent<Text>().text = "乍然出现的、巨大的法阵，提醒我这个世界的规则已不同寻常。法阵上已经摆了三个物品。也许当我完成这个仪式时，会有奇妙的事情发生…";
+            button.SetActive(true);
             Invoke("CloseText", 1.5f);
         }
         //count++;
@@ -28,6 +30,7 @@ public class Show8 : SceneBaseItem
     void Start()
     {
         text.SetActive(false);
+        button.SetActive(false);
     }
 
     // Update is called once per frame
@@ -38,5 +41,10 @@ public class Show8 : SceneBaseItem
     void CloseText()
     {
         text.SetActive(false);
+    }
+    public void StartPlay8()
+    {
+        SceneManager.Instance.play8Stage = true;
+        button.SetActive(false);
     }
 }
