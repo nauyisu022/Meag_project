@@ -10,27 +10,57 @@ public class BagBaseItem : MonoBehaviour, IPointerClickHandler
     public string itemName=null;
     [TextArea]
     public string itemDescription = null;
+    [TextArea]
+    public string itemCheckText = null;
     public Sprite itemSprite = null;
-    public GameObject manager = null;
     public void OnPointerClick(PointerEventData eventData)
     {
-        invokeUI();
-
+        preHandle();
+        openItemUI();
+        postHandle();
     }
 
-    public void invokeUI()
+    public void openItemUI()
     {
-        ItemManager itemManager = manager.GetComponent<ItemManager>();
-        itemManager.showUI(gameObject);
+        ItemManager itemManager = ItemManager.Instance;
+        itemManager.updateItemUI(gameObject, true);
     }
 
-    void Start()
+    public void updateItemInfo(string tag=null, string name=null, string description=null, string checkText=null, Sprite sprite=null)
     {
-
+        if (tag != null)
+        {
+            itemTag = tag;
+        }
+        if (name != null)
+        {
+            itemName = name;
+        }
+        if (description != null)
+        {
+            itemDescription = description;
+        }
+        if (checkText != null)
+        {
+            itemCheckText = checkText;
+        }
+        if (sprite != null)
+        {
+            itemSprite = sprite;
+        }
+        ItemManager itemManager = ItemManager.Instance;
+        itemManager.updateItemUI(gameObject, false);
     }
 
-    void Update()
+    public virtual void destroy()
     {
+        print("Not implemented");
+    }
 
+    public virtual void preHandle() {
+        print("Not implemented");
+    }
+    public virtual void postHandle() {
+        print("Not implemented");
     }
 }

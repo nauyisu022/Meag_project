@@ -5,37 +5,9 @@ using UnityEngine.EventSystems;
 
 public class SceneBaseItem : MonoBehaviour, IPointerClickHandler
 {
-    public bool isBagItem=false;
-    public void OnPointerClick(PointerEventData eventData)
+    public string itemTag = null;
+    public virtual void OnPointerClick(PointerEventData eventData)
     {
-        if (isBagItem)
-        {
-            putIntoBag();
-            //Destroy(gameObject);
-        }
-        else
-        {
-            clickEvent();
-        }
-    }
-
-    public virtual void putIntoBag()
-    {
-
-    }
-
-    public void clickEvent()
-    {
-
-    }
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
+        print("Not implemented");
     }
 }

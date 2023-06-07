@@ -1,27 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class SceneBagItem : SceneBaseItem
 {
-    public string itemTag = null;
     public GameObject prefab;
     public bool isGoalItem;
-    public GameObject manager = null;
-        
-    public override void putIntoBag()
+
+    public void putIntoBag()
     {
-        ItemManager itemManager = manager.GetComponent<ItemManager>();
-        itemManager.putIntoBag(prefab, true);
+        ItemManager itemManager = ItemManager.Instance;
+        itemManager.putIntoBag(prefab, isGoalItem);
     }
 
-
-    void Start()
+    public virtual void postHandle() {
+        print("Not implemented");
+    }
+    public virtual void preHandle()
     {
-        isBagItem = true;
+        print("Not implemented");
     }
 
-    void Update()
+    public override void OnPointerClick(PointerEventData eventData)
     {
+        preHandle();
+        putIntoBag();
+        postHandle();
+        Destroy(gameObject);
     }
 }

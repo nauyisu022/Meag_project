@@ -2,39 +2,57 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class ItemManager: MonoBehaviour
 {
+
+    public static ItemManager Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public Dictionary<string, GameObject> objMap = new Dictionary<string, GameObject>();
     public GameObject GoalGrid;
     public GameObject LoveGrid;
     public GameObject DisplayObject;
     public GameObject imagePanel;
     public GameObject descriptionPanel;
-
-
-    public Dictionary<string, int> itemStateMap=new Dictionary<string, int>();
+    public GameObject checkText;
 
     public void putIntoBag(GameObject prefab, bool isGoalItem)
     {
+        GameObject obj = null;
         if (isGoalItem)
         {
-            GameObject obj = Instantiate(prefab, GoalGrid.transform);
-            obj.GetComponent<BagBaseItem>().manager = gameObject;
+            obj = Instantiate(prefab, GoalGrid.transform);
         }
         else
         {
-            Instantiate(prefab, LoveGrid.transform);
+            obj = Instantiate(prefab, LoveGrid.transform);
         }
+        objMap.Add(prefab.GetComponent<BagBaseItem>().itemTag, obj);
     }
-
-    public void showUI(GameObject item)
+    public void updateItemUI(GameObject item, bool needDisplay)
     {
+        DisplayObject.SetActive(true);
         BagBaseItem bagBaseItem = item.GetComponent<BagBaseItem>();
         string itemName = bagBaseItem.itemName;
         string itemDescription = bagBaseItem.itemDescription;
+        string itemCheckText = bagBaseItem.itemCheckText;
         Sprite itemSprite = bagBaseItem.itemSprite;
-        DisplayObject.SetActive(true);
         imagePanel.GetComponent<Image>().sprite = itemSprite;
-        descriptionPanel.GetComponent<Text>().text= itemDescription;
+        descriptionPanel.GetComponent<Text>().text = itemDescription;
+        checkText.GetComponent<Text>().text = itemCheckText;
     }
+
 }
