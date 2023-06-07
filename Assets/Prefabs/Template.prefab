@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5025325157588447672}
   - component: {fileID: -9130555975730741689}
   m_Layer: 5
-  m_Name: test
+  m_Name: Template
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,5 +91,5 @@ MonoBehaviour:
   itemTag: "\u82B1\u5C97\u5CA9"
   itemName: "\u82B1\u5C97\u5CA9"
   itemDescription: "\u82B1\u5C97\u5CA9"
+  itemCheckText: "\u8FD9\u662F\u4E00\u4E2A\u795E\u5947\u7684\u82B1\u5C97\u5CA9"
   itemSprite: {fileID: 21300000, guid: 1416d1052729ac34cbf74fc6fcc1e1f3, type: 3}
-  manager: {fileID: 0}

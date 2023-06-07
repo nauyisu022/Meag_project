@@ -15,4 +15,8 @@ public class FatherTrigger : MonoBehaviour
     {
         
     }
+    public void ChangeState()
+    {
+
+    }
 }
