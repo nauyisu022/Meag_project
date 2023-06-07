@@ -23,12 +23,16 @@ public class SceneBagItem : SceneBaseItem
     {
         print("Not implemented");
     }
+    public virtual void destroy()
+    {
+        Destroy(gameObject);
+    }
 
     public override void OnPointerClick(PointerEventData eventData)
     {
         preHandle();
         putIntoBag();
         postHandle();
-        Destroy(gameObject);
+        destroy();
     }
 }
