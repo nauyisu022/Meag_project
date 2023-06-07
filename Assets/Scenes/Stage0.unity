@@ -1023,7 +1023,7 @@ GameObject:
   - component: {fileID: 502419772}
   - component: {fileID: 502419771}
   - component: {fileID: 502419774}
-  - component: {fileID: 502419773}
+  - component: {fileID: 502419775}
   m_Layer: 0
   m_Name: "\u56FD\u5BB6\u5730\u7406\u6742\u5FD7"
   m_TagString: Untagged
@@ -1096,21 +1096,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &502419773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502419770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4ff40b1c5e2f1a4294c0fd5bc501358, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemTag: "\u56FD\u5BB6\u5730\u7406\u6742\u5FD7"
-  prefab: {fileID: 8725244807004301033, guid: 4a11ecbabf0706c42bf900a2025d67f6, type: 3}
-  isGoalItem: 1
 --- !u!65 &502419774
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1124,6 +1109,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.5, y: 3.700001, z: 0.20000005}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &502419775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502419770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de4ba831b12e7c46b51bd965341e107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemTag: "\u56FD\u5BB6\u5730\u7406\u6742\u5FD7"
+  prefabList:
+  - {fileID: 8725244807004301033, guid: 4a11ecbabf0706c42bf900a2025d67f6, type: 3}
+  - {fileID: 0}
+  isGoalItem: 1
 --- !u!1 &530328199
 GameObject:
   m_ObjectHideFlags: 0
