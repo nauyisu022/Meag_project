@@ -5,7 +5,7 @@ public class VideoToGame : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
 
-    void Start()
+    void Awake()
     {
         // 获取VideoPlayer组件
         videoPlayer = GetComponent<VideoPlayer>();
@@ -20,7 +20,9 @@ public class VideoToGame : MonoBehaviour
         if (!videoPlayer.isPlaying)
         {
             // 视频播放完毕的处理逻辑
+            Debug.Log("ha");
             CameraManager.Instance.switchCamera("宿舍Camera");
+            Destroy(this.gameObject.GetComponent<VideoToGame>());
         }
     }
 }
