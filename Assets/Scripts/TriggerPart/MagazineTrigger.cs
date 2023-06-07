@@ -26,7 +26,7 @@ public class MagazineTrigger : BagBaseItem
         _description = "国家地理杂志";
 
         checkText1 = "一本保存良好的杂志。纸张边缘因老旧而泛黄。";
-        checkText2 = "令人印象深刻的一期国家地理，介绍了雷电现象的起源和成因，读来仿佛有雷声在心中轰鸣。将这一期特地收藏，以纪念曾经那闪电般耀眼的理想。";
+        checkText2 = "震（雷），因其象征激动和启示。“令人印象深刻的一期国家地理，介绍了雷电现象的起源和成因，读来仿佛有雷声在心中轰鸣。将这一期特地收藏，以纪念曾经那闪电般耀眼的理想。";
         image1 = Resources.Load<Sprite>("国家地理杂志");
         image2 = Resources.Load<Sprite>("国家地理杂志");
     }
