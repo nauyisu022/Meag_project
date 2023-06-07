@@ -19,14 +19,15 @@ public class BagBaseItem : MonoBehaviour, IPointerClickHandler
         openItemUI();
         postHandle();
     }
-
+    // 传递当前背包item的信息到展示栏中并打开展示栏
     public void openItemUI()
     {
         ItemManager itemManager = ItemManager.Instance;
         itemManager.updateItemUI(gameObject, true);
     }
 
-    public void updateItemInfo(string tag=null, string name=null, string description=null, string checkText=null, Sprite sprite=null)
+    // 更改当前背包item信息，如果正在展示当前item，那么同步更改展示栏内容
+    public void updateItemInfo(string name=null, string description=null, string checkText=null, Sprite sprite=null)
     {
         if (tag != null)
         {
