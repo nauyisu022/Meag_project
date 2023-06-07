@@ -11,7 +11,7 @@ public class SceneBaseItem : MonoBehaviour, IPointerClickHandler
         if (isBagItem)
         {
             putIntoBag();
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
         else
         {
@@ -19,7 +19,7 @@ public class SceneBaseItem : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void putIntoBag()
+    public virtual void putIntoBag()
     {
 
     }
