@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class SceneManager : MonoBehaviour
 {
+    
     public bool passwordIsCorrect = false;
-    public bool jumpToClassroom = false;
+    public bool puzzleIsCorrect = false;//马克杯，拼图
+    public bool jumpToClassroom = false;//冰箱贴，钥匙钥匙扣
     public int cameraPos = 0;//0代表宿舍，1代表教室
     public static SceneManager Instance { get; private set; }
 
