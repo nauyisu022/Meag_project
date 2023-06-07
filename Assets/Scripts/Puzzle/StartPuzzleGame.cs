@@ -48,8 +48,15 @@ public class StartPuzzleGame : MonoBehaviour
         gridSize = gridLayoutGroup.transform.childCount;
         gridSpacing = gridLayoutGroup.spacing;
         gridOrigin = gridLayoutGroup.transform.GetChild(0).position;
-    
 
+        //获取已经存在的9个拼图碎片物体
+        pieces = new GameObject[9];
+        for (int i = 0; i < 9; i++)
+        {
+            pieces[i] = transform.GetChild(i).gameObject;
+        }
+    
+/*
     //使用Instantiate函数或GameObject.CreatePrimitive函数，在PuzzleManager对象的同一平面内创建九个平面物体，作为拼图碎片。为每个物体添加Mesh Renderer组件，并设置其材质为你自己的图片素材。为每个物体添加Box Collider组件，并设置其大小和网格大小相同。为每个物体添加一个自定义的Piece脚本，用来存储其正确的位置和当前的位置。
     pieces = new GameObject[gridSize];
     pieceSize = new Vector2(gridSpacing.x, gridSpacing.y);
@@ -74,10 +81,10 @@ public class StartPuzzleGame : MonoBehaviour
             pieceScript.correctPosition = pieces[i].transform.position;
             pieceScript.currentPosition = pieces[i].transform.position;
         }
-
-    //使用Random.Range函数或其他随机算法，打乱拼图碎片的位置，并将它们放置在PuzzleManager对象的网格上。
-    //注意不要让两个碎片重叠在同一个位置。
-    ShufflePieces();
+*/
+      //使用Random.Range函数或其他随机算法，打乱拼图碎片的位置，并将它们放置在PuzzleManager对象的网格上。
+      //注意不要让两个碎片重叠在同一个位置。
+      //ShufflePieces();
     }
 
     /*
