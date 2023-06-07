@@ -9,7 +9,7 @@ public class DoPuzzle : SceneBaseItem
     public override void OnPointerClick(PointerEventData eventData)
     {
         if (count > 0)
-            CameraManager.Instance.switchCamera("ƴͼCamera");
+            CameraManager.Instance.switchCamera("拼图Camera");
         count++;
     }
     // Start is called before the first frame update
