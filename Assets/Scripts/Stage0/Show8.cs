@@ -36,7 +36,8 @@ public class Show8 : SceneBaseItem
     // Update is called once per frame
     void Update()
     {
-
+        //if (BaGuaController.Instance.BaGua_isSuccess == true)
+            //GameManager.Instance.LoadScene("EndScene");
     }
     void CloseText()
     {

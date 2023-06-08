@@ -25,7 +25,7 @@ public class GlobeTrigger : BagBaseItem
         _name = "地球仪";
         _description = "地球仪";
         checkText1 = "不知道什么时候买的地球仪，多少有点占地方了。";
-        checkText2 = "坤（地），因其代表着地球的包容和承载。坤为地，无限宽广，厚重坚实，孕育万物。“小时候在听完一场地理科普讲座后买的，脚下厚重坚实的大地原来竟是一个滚圆的星球。认识世界的第一步，梦想最初的模样。”";
+        checkText2 = "小时候在听完一场地理科普讲座后买的，脚下厚重坚实的大地原来竟是一个滚圆的星球。认识世界的第一步，梦想最初的模样。";
         image1 = Resources.Load<Sprite>("地球仪");
         image2 = Resources.Load<Sprite>("地球仪");
     }

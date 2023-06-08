@@ -1770,7 +1770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 745678617}
   speed: 0.4
-  progress: 0.20275226
+  progress: 0.33541328
   shader: {fileID: 4800000, guid: 0dee5368e046eaf4cbee1a454822bf85, type: 3}
   material: {fileID: 0}
 --- !u!1 &602155336
