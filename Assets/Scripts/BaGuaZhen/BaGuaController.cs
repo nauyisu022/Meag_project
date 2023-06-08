@@ -5,6 +5,21 @@ using UnityEngine;
 public class BaGuaController : MonoBehaviour
 {
 
+    public static BaGuaController Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void itemClickFunc(string itemTag, GameObject obj) { }
 
     // Start is called before the first frame update
