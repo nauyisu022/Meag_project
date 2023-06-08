@@ -5014,7 +5014,7 @@ MonoBehaviour:
   - {fileID: 959863241}
   - {fileID: 209860166}
   - {fileID: 336553972}
-  curIndex: 4
+  curIndex: 3
   currentCamera: {fileID: 0}
 --- !u!4 &1919781470
 Transform:
