@@ -16,9 +16,17 @@ public class BagBaseItem : MonoBehaviour, IPointerClickHandler
     public bool needScaleUp=false;
     public void OnPointerClick(PointerEventData eventData)
     {
-        preHandle();
-        openItemUI();
-        postHandle();
+        if (!SceneManager.Instance.in8Stage)
+        {
+            preHandle();
+            openItemUI();
+            postHandle();
+        }
+        else
+        {
+
+        }
+        
     }
     // 传递当前背包item的信息到展示栏中并打开展示栏
     public void openItemUI()
