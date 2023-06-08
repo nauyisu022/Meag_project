@@ -36,6 +36,8 @@ public class ItemManager: MonoBehaviour
     // 展示框check描述
     public GameObject checkText;
     public string curTag = null;
+    public bool showUseBtn = false;
+    public GameObject UseBtnObj = null;
 
     // 以物品栏GameObject实例化背包物品GameObject并通过tag放到objMap进行追踪
     public void putIntoBag(GameObject prefab, bool isGoalItem)
@@ -87,6 +89,28 @@ public class ItemManager: MonoBehaviour
             bigImgPanel.SetActive(true);
             bigImgPanel.GetComponent<Image>().sprite = itemSprite;
         }
+        if (showUseBtn)
+        {
+            UseBtn useBtn = UseBtnObj.GetComponent<UseBtn>();
+            print($"get useBtn: {useBtn}");
+            useBtn.itemTag = itemTag;
+            useBtn.obj = item;
+            UseBtnObj.SetActive(true);
+        }
+        else
+        {
+            UseBtnObj.SetActive(false);
+        }
+    }
+
+    public void closeDisplay()
+    {
+        DisplayObject.SetActive(false);
+    }
+
+    public void in8Callback()
+    {
+        showUseBtn= true;
     }
 
 }

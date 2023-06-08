@@ -55,6 +55,7 @@ public class CheckPassword : MonoBehaviour
         SceneManager.Instance.jumpToClassroom = true;
         SceneManager.Instance.in8Stage = true;
         CameraManager.Instance.switchCamera("Àﬁ…·Camera");
+        ItemManager.Instance.in8Callback();
         //Invoke("Back", 2.0f);
     }
     void Back()
