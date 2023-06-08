@@ -8,6 +8,7 @@ public class DoPuzzle : SceneBaseItem
     int count = 0;
     public override void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log(count);
         if (count > 0)
             CameraManager.Instance.switchCamera("拼图Camera");
         count++;

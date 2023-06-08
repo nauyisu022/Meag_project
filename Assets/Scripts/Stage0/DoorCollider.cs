@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DoorCollider : SceneBaseItem
 {
     public GameObject text;
+    bool firstTime = true;
     public override void OnPointerClick(PointerEventData eventData)
     {
 
@@ -41,7 +42,12 @@ public class DoorCollider : SceneBaseItem
     }
     void TurnStage()
     {
-        CameraManager.Instance.switchCamera("教室柜子Camera");
+        if(firstTime == true)
+        {
+            CameraManager.Instance.switchCamera("教室柜子Camera");
+            firstTime = false;
+        }
+            
     }
     void CloseText()
     {
