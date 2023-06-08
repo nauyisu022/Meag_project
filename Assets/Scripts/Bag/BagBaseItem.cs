@@ -24,7 +24,7 @@ public class BagBaseItem : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-
+            
         }
         
     }
