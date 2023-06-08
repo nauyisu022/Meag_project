@@ -6,6 +6,7 @@ public class SceneManager : MonoBehaviour
 {
     public int puzzleCnt = 0;
     public bool play8Stage = false;
+    public bool in8Stage = false;
     public bool passwordIsCorrect = false;
     public bool puzzleIsCorrect = false;//Âí¿Ë±­£¬Æ´Í¼
     public bool jumpToClassroom = false;//±ùÏäÌù£¬Ô¿³×Ô¿³×¿Û
