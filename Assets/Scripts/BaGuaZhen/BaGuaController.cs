@@ -141,6 +141,7 @@ public class BaGuaController : MonoBehaviour
         }
         // 如果所有位置都相同，设置_isSuccess为true并返回true
         BaGua_isSuccess = true;
+        GameManager.Instance.LoadScene("EndScene");
         return true;
     }
 

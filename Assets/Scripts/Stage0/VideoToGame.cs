@@ -4,6 +4,7 @@ using UnityEngine.Video;
 public class VideoToGame : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
+    public GameObject obj;
 
     void Awake()
     {
@@ -22,6 +23,7 @@ public class VideoToGame : MonoBehaviour
             // 视频播放完毕的处理逻辑
             Debug.Log("ha");
             CameraManager.Instance.switchCamera("宿舍Camera");
+            obj.SetActive(true);
             Destroy(this.gameObject.GetComponent<VideoToGame>());
         }
     }

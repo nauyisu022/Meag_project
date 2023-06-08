@@ -28,7 +28,7 @@ public class CupTrigger : BagBaseItem
         checkText1 = "傻乎乎的情侣款马克杯，只有热恋中的人才会喜欢这种风格吧。杯底有一串意义不明的数字。";
         checkText2 = "如今只剩下一只的情侣款杯子。杯底当然是某人的生日。";
         image1 = Resources.Load<Sprite>("杯子");
-        image2 = Resources.Load<Sprite>("杯子");
+        image2 = Resources.Load<Sprite>("日期杯子");
     }
     // Start is called before the first frame update
     void Start()
