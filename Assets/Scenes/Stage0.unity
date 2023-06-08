@@ -1370,7 +1370,7 @@ MonoBehaviour:
   itemTag: "\u56FD\u5BB6\u5730\u7406\u6742\u5FD7"
   prefabList:
   - {fileID: 8725244807004301033, guid: 4a11ecbabf0706c42bf900a2025d67f6, type: 3}
-  - {fileID: 0}
+  - {fileID: 2084934066966548303, guid: cbcd2e3311260b1489b79fd795d377a9, type: 3}
   isGoalItem: 1
 --- !u!1 &530328199
 GameObject:
