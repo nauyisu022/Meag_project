@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartPuzzleGame : MonoBehaviour
+public class StartBaGuaZhen : MonoBehaviour
 {
+    /*
     //PositionLoader对象的引用
     public GameObject positionLoader;
     //网格物体数组
-    public Vector3[] children;
+    public GameObject[] children;
     //拼图碎片物体数组
     public GameObject[] pieces;
 
@@ -27,16 +28,32 @@ public class StartPuzzleGame : MonoBehaviour
         selectedPiece = null;
 
         //获取PositionLoader对象和其子物体的引用
-        positionLoader = GameObject.Find("PositionLoader");
-
-        // Debug.Log(children.Length);
+        positionLoader = GameObject.Find("八卦阵位置指示");
+        //获取PositionLoader对象的RectTransform组件
+        RectTransform rectTransform = positionLoader.GetComponent<RectTransform>();
+        foreach (Transform child in positionLoader.transform)
+        {
+            Debug.Log(child.gameObject.name);
+        }
+        /*
+        children = new GameObject[positionLoader.transform.childCount];
+        Vector3 firstPosition = positionLoader.transform.GetChild(0).gameObject.transform.position; // 获取第一个子物体的位置
+        for (int i = 0; i < children.Length; i++)
+        {
+            children[i] = positionLoader.transform.GetChild(i).gameObject;
+            Vector3 currentPosition = children[i].transform.position; // 获取当前子物体的位置
+            if (!Vector3.Equals(currentPosition, firstPosition)) // 比较当前位置和第一个位置是否相同
+            {
+                Debug.Log("Different position found: " + children[i].name); // 如果不同，输出提示信息
+            }
+        }
+        Debug.Log(children.Length);
         //打印positionLoader对象是否为空
-        //Debug.Log("positionLoader is null: " + (positionLoader == null));
-    
+        Debug.Log("positionLoader is null: " + (positionLoader == null));
 
 
         //遍历所有拼图碎片物体和网格物体
-        for (int i = 0; i< 9; i++)
+        for (int i = 0; i < 9; i++)
         {
             //获取Piece脚本
             Piece piece = pieces[i].GetComponent<Piece>();
@@ -44,9 +61,18 @@ public class StartPuzzleGame : MonoBehaviour
             piece.currentPosition = pieces[i].transform.position;
             piece.initPosition = pieces[i].transform.position;
 
+            //通过positionLoader对象的transform属性来获取它的第i个子物体的位置
+            /*GameObject child = positionLoader.transform.GetChild(i).gameObject;
+            //打印子物体是否为空
+            Debug.Log("child is null: " + (child == null));*/
+            /*Vector3 child_Position = positionLoader.transform.GetChild(i).transform.position;
+            //加上锚点和中心点的偏移量
+            child_Position -= new Vector3(rectTransform.rect.width * rectTransform.pivot.x, rectTransform.rect.height * rectTransform.pivot.y, 0);
+            //打印子物体的位置
+            Debug.Log(child_Position);
 
             //设置正确位置属性
-            piece.correctPosition = children[i];
+            piece.correctPosition = children[i].GetComponent<GridPosition>().targetPosition;
 
             //打印拼图碎片物体在场景中的位置
             Debug.Log("Current position of " + pieces[i].name + ": " + piece.currentPosition);
@@ -59,48 +85,40 @@ public class StartPuzzleGame : MonoBehaviour
     void Update()
     {
         //遍历所有拼图碎片物体，检查它们的Piece脚本中的当前位置是否和正确位置相同。如果都相同，则表示游戏成功，将isSuccess变量设置为true，并显示相应的提示信息。
-        if (!isSuccess) CheckSuccess();
+        CheckSuccess();
 
         //如果游戏没有成功，则处理用户的输入事件。使用Raycast函数或其他方法，检测用户点击了哪个拼图碎片物体，然后将其选中并高亮显示。再次点击时，检测用户点击了哪个网格位置，然后将选中的拼图碎片物体移动到该位置，并更新其Piece脚本中的当前位置信息。如果用户没有点击任何有效的位置，则取消选中并恢复原样。
         if (!isSuccess)
-        { 
-            HandleInput();
-        }
-    }
-
-//检查游戏是否成功的方法
-void CheckSuccess()
-{
-    //遍历所有拼图碎片物体
-    for (int i = 0; i < pieces.Length; i++)
-    {
-        //获取Piece脚本
-        Piece piece = pieces[i].GetComponent<Piece>();
-
-        //如果有一个拼图碎片物体的当前位置和正确位置不同，则返回
-        if (!piece.IsCorrect())
         {
-            return;
+            HandleInput();
+
         }
     }
-    //如果所有拼图碎片物体的当前位置和正确位置都相同，则表示游戏成功
-    isSuccess = true;
-    SceneManager.Instance.puzzleIsCorrect = true;
-    Invoke("TurnToClassroom", 1.0f);
-    
-    //显示提示信息
-    Debug.Log("You win!");
-}
 
-    void TurnToClassroom()
+    //检查游戏是否成功的方法
+    void CheckSuccess()
     {
-        CameraManager.Instance.switchCamera("教室Camera");
+        //遍历所有拼图碎片物体
+        for (int i = 0; i < pieces.Length; i++)
+        {
+            //获取Piece脚本
+            Piece piece = pieces[i].GetComponent<Piece>();
+
+            //如果有一个拼图碎片物体的当前位置和正确位置不同，则返回
+            if (!piece.IsCorrect())
+            {
+                return;
+            }
+        }
+        //如果所有拼图碎片物体的当前位置和正确位置都相同，则表示游戏成功
+        isSuccess = true;
+        SceneManager.Instance.puzzleIsCorrect = true;
+        //显示提示信息
+        Debug.Log("You win!");
     }
 
-//处理用户输入事件的方法
-void HandleInput()
-{
-    if (GameObject.Find("拼图Camera"))
+    //处理用户输入事件的方法
+    void HandleInput()
     {
         //如果用户点击了鼠标左键
         if (Input.GetMouseButtonDown(0))
@@ -164,56 +182,56 @@ void HandleInput()
         }
         CheckError();
     }
-}
 
-//检查拼图是否错误的方法
-bool CheckError()
-{
-    //遍历所有拼图碎片物体
-    for (int i = 0; i < pieces.Length; i++)
+    //检查拼图是否错误的方法
+    bool CheckError()
     {
-        //获取Piece脚本
-        Piece piece = pieces[i].GetComponent<Piece>();
-
-        //如果有一个拼图碎片物体的当前位置和正确位置不同，则继续检查
-        if (!piece.IsCorrect())
+        //遍历所有拼图碎片物体
+        for (int i = 0; i < pieces.Length; i++)
         {
-            //定义一个布尔变量，用来记录是否所有拼图碎片物体都已经被移动到网格上
-            bool allOnGrid = true;
-            //遍历所有拼图碎片物体
-            for (int j = 0; j < pieces.Length; j++)
+            //获取Piece脚本
+            Piece piece = pieces[i].GetComponent<Piece>();
+
+            //如果有一个拼图碎片物体的当前位置和正确位置不同，则继续检查
+            if (!piece.IsCorrect())
             {
-                //获取Piece脚本
-                Piece piece2 = pieces[j].GetComponent<Piece>();
-                //如果有一个拼图碎片物体的当前位置和初始位置相同，则表示它还没有被移动到网格上，将布尔变量设为false，并跳出循环
-                if (piece2.currentPosition == piece2.initPosition)
-                {
-                    allOnGrid = false;
-                    break;
-                }
-            }
-            //如果所有拼图碎片物体都已经被移动到网格上，则表示拼图错误，输出提示信息，并将所有拼图碎片物体还原到初始位置，返回false
-            if (allOnGrid)
-            {
-                Debug.Log("拼图错误，请重新拼图。");
-                for (int k = 0; k < pieces.Length; k++)
+                //定义一个布尔变量，用来记录是否所有拼图碎片物体都已经被移动到网格上
+                bool allOnGrid = true;
+                //遍历所有拼图碎片物体
+                for (int j = 0; j < pieces.Length; j++)
                 {
                     //获取Piece脚本
-                    Piece piece3 = pieces[k].GetComponent<Piece>();
-                    //将拼图碎片物体移动到初始位置，并更新其Piece脚本中的当前位置信息
-                    pieces[k].transform.position = piece3.initPosition;
-                    piece3.currentPosition = piece3.initPosition;
+                    Piece piece2 = pieces[j].GetComponent<Piece>();
+                    //如果有一个拼图碎片物体的当前位置和初始位置相同，则表示它还没有被移动到网格上，将布尔变量设为false，并跳出循环
+                    if (piece2.currentPosition == piece2.initPosition)
+                    {
+                        allOnGrid = false;
+                        break;
+                    }
                 }
-                return false;
-            }
-            //否则，表示拼图还没有完成，返回false
-            else
-            {
-                return false;
+                //如果所有拼图碎片物体都已经被移动到网格上，则表示拼图错误，输出提示信息，并将所有拼图碎片物体还原到初始位置，返回false
+                if (allOnGrid)
+                {
+                    Debug.Log("拼图错误，请重新拼图。");
+                    for (int k = 0; k < pieces.Length; k++)
+                    {
+                        //获取Piece脚本
+                        Piece piece3 = pieces[k].GetComponent<Piece>();
+                        //将拼图碎片物体移动到初始位置，并更新其Piece脚本中的当前位置信息
+                        pieces[k].transform.position = piece3.initPosition;
+                        piece3.currentPosition = piece3.initPosition;
+                    }
+                    return false;
+                }
+                //否则，表示拼图还没有完成，返回false
+                else
+                {
+                    return false;
+                }
             }
         }
+        //如果所有拼图碎片物体的当前位置和正确位置都相同，则表示拼图正确，返回true
+        return true;
     }
-    //如果所有拼图碎片物体的当前位置和正确位置都相同，则表示拼图正确，返回true
-    return true;
-}
+*/
 }
