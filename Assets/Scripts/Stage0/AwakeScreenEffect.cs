@@ -6,7 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class AwakeScreenEffect : MonoBehaviour
 {
+    public GameObject audioSource;
     int blink = 0;
+    bool notPlay = true;
     public float speed = 0.2f;
     [Range(0f, 1f)]
     [Tooltip("купя╫Ь╤х")]
@@ -35,6 +37,13 @@ public class AwakeScreenEffect : MonoBehaviour
     {
         if(SceneManager.Instance.jumpToClassroom == false)
         {
+            if(notPlay)
+            {
+                Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!");
+                audioSource.GetComponent<AudioSource>().Play();
+                notPlay = false;
+            }
+                
             if (progress >= 0.5 && blink == 0)
             {
                 blink = 1;
