@@ -1595,6 +1595,7 @@ GameObject:
   - component: {fileID: 602045801}
   - component: {fileID: 602045800}
   - component: {fileID: 602045799}
+  - component: {fileID: 602045802}
   m_Layer: 0
   m_Name: "\u5BBF\u820DCamera"
   m_TagString: Untagged
@@ -1675,6 +1676,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &602045802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602045798}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f5e664545e085f488972b7e5a5c4bad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.4
+  progress: 0.008
+  shader: {fileID: 4800000, guid: 0dee5368e046eaf4cbee1a454822bf85, type: 3}
+  material: {fileID: 0}
 --- !u!1 &602155336
 GameObject:
   m_ObjectHideFlags: 0

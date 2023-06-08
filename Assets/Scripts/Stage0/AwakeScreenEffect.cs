@@ -33,25 +33,28 @@ public class AwakeScreenEffect : MonoBehaviour
     }
     void Update()
     {
-        if(progress >= 0.5 && blink == 0)
+        if(SceneManager.Instance.jumpToClassroom == false)
         {
-            blink = 1;
-        }
-        if(progress <= 0 && blink == 1)
-        {
-            blink = 2;
-        }
-        if(progress < 0.5 && blink == 0)
-        {
-            progress += speed * Time.deltaTime;
-        }
-        if (progress > 0 && blink == 1)
-        {
-            progress -= speed * Time.deltaTime;
-        }
-        if (progress < 1 && blink == 2)
-        {
-            progress += speed * Time.deltaTime;
+            if (progress >= 0.5 && blink == 0)
+            {
+                blink = 1;
+            }
+            if (progress <= 0 && blink == 1)
+            {
+                blink = 2;
+            }
+            if (progress < 0.5 && blink == 0)
+            {
+                progress += speed * Time.deltaTime;
+            }
+            if (progress > 0 && blink == 1)
+            {
+                progress -= speed * Time.deltaTime;
+            }
+            if (progress < 1 && blink == 2)
+            {
+                progress += speed * Time.deltaTime;
+            }
         }
 
 

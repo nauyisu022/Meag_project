@@ -28,7 +28,7 @@ public class PuzzleTrigger : BagBaseItem
         checkText1 = "如今已经很少见的老式拼图，不知道画着怎样的故事。";
         checkText2 = "为了庆祝属于我们的纪念日，特意定制的拼图。专门去影楼拍了照片，一起精心挑选了好久。上面画着我们的故事。";
         image1 = Resources.Load<Sprite>("柜子+拼图");
-        image2 = Resources.Load<Sprite>("柜子+拼图");
+        image2 = Resources.Load<Sprite>("拼图碎片/完整拼图");
     }
     // Start is called before the first frame update
     void Start()
