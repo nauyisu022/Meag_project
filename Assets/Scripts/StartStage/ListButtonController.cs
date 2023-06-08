@@ -20,5 +20,10 @@ public class ListButtonController : MonoBehaviour
     public void Show()
     {
         text.SetActive(true);
+        Invoke("Unshow", 5.0f);
+    }
+    void Unshow()
+    {
+        text.SetActive(false);
     }
 }

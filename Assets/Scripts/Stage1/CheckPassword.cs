@@ -53,6 +53,7 @@ public class CheckPassword : MonoBehaviour
         //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         SceneManager.Instance.passwordIsCorrect = true;
         SceneManager.Instance.jumpToClassroom = true;
+        SceneManager.Instance.in8Stage = true;
         CameraManager.Instance.switchCamera("Àﬁ…·Camera");
         //Invoke("Back", 2.0f);
     }
