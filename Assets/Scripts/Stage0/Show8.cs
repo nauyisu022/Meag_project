@@ -17,7 +17,7 @@ public class Show8 : SceneBaseItem
             text.GetComponent<Text>().text = "现在手头的东西还不够，或许等下再尝试更好。";
             Invoke("CloseText", 1.5f);
         }
-        else if(SceneManager.Instance.play8Stage == false)
+        else if(SceneManager.Instance.jumpToClassroom == true && SceneManager.Instance.play8Stage == false)
         {
             text.SetActive(true);
             text.GetComponent<Text>().text = "乍然出现的、巨大的法阵，提醒我这个世界的规则已不同寻常。法阵上已经摆了三个物品。也许当我完成这个仪式时，会有奇妙的事情发生…";
