@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class ItemManager: MonoBehaviour
 {
-    // 单例模式
+    // 锟斤拷锟斤拷模式
     public static ItemManager Instance { get; private set; }
     private void Awake()
     {
@@ -21,25 +20,25 @@ public class ItemManager: MonoBehaviour
         }
     }
 
-    // 通过itemTag唯一表示对应Object的map
+    // 通锟斤拷itemTag唯一锟斤拷示锟斤拷应Object锟斤拷map
     public Dictionary<string, GameObject> objMap = new Dictionary<string, GameObject>();
-    // 背包栏的对应panel
+    // 锟斤拷锟斤拷锟斤拷锟侥讹拷应panel
     public GameObject GoalGrid;
     public GameObject LoveGrid;
-    // 展示框框架
+    // 展示锟斤拷锟斤拷
     public GameObject DisplayObject;
-    // 展示框图片
+    // 展示锟斤拷图片
     public GameObject imagePanel;
     public GameObject bigImgPanel;
-    // 展示框普通表述
+    // 展示锟斤拷锟斤拷通锟斤拷锟斤拷
     public GameObject descriptionPanel;
-    // 展示框check描述
+    // 展示锟斤拷check锟斤拷锟斤拷
     public GameObject checkText;
     public string curTag = null;
     public bool showUseBtn = false;
     public GameObject UseBtnObj = null;
 
-    // 以物品栏GameObject实例化背包物品GameObject并通过tag放到objMap进行追踪
+    // 锟斤拷锟斤拷品锟斤拷GameObject实锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷品GameObject锟斤拷通锟斤拷tag锟脚碉拷objMap锟斤拷锟斤拷追锟斤拷
     public void putIntoBag(GameObject prefab, bool isGoalItem)
     {
         GameObject obj = null;
@@ -54,7 +53,7 @@ public class ItemManager: MonoBehaviour
         Debug.Log(obj.GetComponent<BagBaseItem>().itemTag);
         objMap.Add(obj.GetComponent<BagBaseItem>().itemTag, obj);
     }
-    // 更新展示栏所存储的信息，同时根据变量needDisplay判断是否需要显示出展示栏
+    // 锟斤拷锟斤拷展示锟斤拷锟斤拷锟芥储锟斤拷锟斤拷息锟斤拷同时锟斤拷锟捷憋拷锟斤拷needDisplay锟叫讹拷锟角凤拷锟斤拷要锟斤拷示锟斤拷展示锟斤拷
     public void updateItemUI(GameObject item, bool needDisplay, bool needScaleUp=false)
     {
         BagBaseItem bagBaseItem = item.GetComponent<BagBaseItem>();

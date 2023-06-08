@@ -19,7 +19,7 @@ public class StartButtonController : MonoBehaviour
     public void StartGameButton()
     {
         aS.GetComponent<AudioSource>().Play();
-        Invoke("ChangeScene", 2.0f);
+        Invoke("ChangeScene", 3.0f);
     }
     void ChangeScene()
     {
