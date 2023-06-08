@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StartBaGuaZhen : MonoBehaviour
 {
+    /*
     //PositionLoader对象的引用
     public GameObject positionLoader;
     //网格物体数组
@@ -45,7 +46,7 @@ public class StartBaGuaZhen : MonoBehaviour
             {
                 Debug.Log("Different position found: " + children[i].name); // 如果不同，输出提示信息
             }
-        }*/
+        }
         Debug.Log(children.Length);
         //打印positionLoader对象是否为空
         Debug.Log("positionLoader is null: " + (positionLoader == null));
@@ -68,7 +69,7 @@ public class StartBaGuaZhen : MonoBehaviour
             //加上锚点和中心点的偏移量
             child_Position -= new Vector3(rectTransform.rect.width * rectTransform.pivot.x, rectTransform.rect.height * rectTransform.pivot.y, 0);
             //打印子物体的位置
-            Debug.Log(child_Position);*/
+            Debug.Log(child_Position);
 
             //设置正确位置属性
             piece.correctPosition = children[i].GetComponent<GridPosition>().targetPosition;
@@ -232,4 +233,5 @@ public class StartBaGuaZhen : MonoBehaviour
         //如果所有拼图碎片物体的当前位置和正确位置都相同，则表示拼图正确，返回true
         return true;
     }
+*/
 }
