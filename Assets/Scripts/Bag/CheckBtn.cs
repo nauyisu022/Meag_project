@@ -6,10 +6,11 @@ public class CheckBtn : MonoBehaviour
 {
     public GameObject CheckText = null;
     public bool isActive = false;
+
     public void switchTextDisplay ()
     {
-        isActive= !isActive;
-        CheckText.SetActive (isActive);
+        isActive = !isActive;
+        CheckText.SetActive(isActive);
     }
 
     private void Start()

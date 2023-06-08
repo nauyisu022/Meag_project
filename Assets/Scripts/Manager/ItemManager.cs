@@ -30,6 +30,7 @@ public class ItemManager: MonoBehaviour
     public GameObject DisplayObject;
     // 展示框图片
     public GameObject imagePanel;
+    public GameObject bigImgPanel;
     // 展示框普通表述
     public GameObject descriptionPanel;
     // 展示框check描述
@@ -52,7 +53,7 @@ public class ItemManager: MonoBehaviour
         objMap.Add(obj.GetComponent<BagBaseItem>().itemTag, obj);
     }
     // 更新展示栏所存储的信息，同时根据变量needDisplay判断是否需要显示出展示栏
-    public void updateItemUI(GameObject item, bool needDisplay)
+    public void updateItemUI(GameObject item, bool needDisplay, bool needScaleUp=false)
     {
         BagBaseItem bagBaseItem = item.GetComponent<BagBaseItem>();
         string itemTag = bagBaseItem.itemTag;
@@ -73,9 +74,19 @@ public class ItemManager: MonoBehaviour
         string itemDescription = bagBaseItem.itemDescription;
         string itemCheckText = bagBaseItem.itemCheckText;
         Sprite itemSprite = bagBaseItem.itemSprite;
-        imagePanel.GetComponent<Image>().sprite = itemSprite;
         descriptionPanel.GetComponent<Text>().text = itemDescription;
         checkText.GetComponent<Text>().text = itemCheckText;
+        if(!needScaleUp) { 
+            imagePanel.SetActive(true);
+            bigImgPanel.SetActive(false);
+            imagePanel.GetComponent<Image>().sprite = itemSprite;
+        }
+        else
+        {
+            imagePanel.SetActive(false);
+            bigImgPanel.SetActive(true);
+            bigImgPanel.GetComponent<Image>().sprite = itemSprite;
+        }
     }
 
 }

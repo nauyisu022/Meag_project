@@ -13,6 +13,7 @@ public class BagBaseItem : MonoBehaviour, IPointerClickHandler
     [TextArea]
     public string itemCheckText = null;
     public Sprite itemSprite = null;
+    public bool needScaleUp=false;
     public void OnPointerClick(PointerEventData eventData)
     {
         preHandle();
@@ -23,7 +24,7 @@ public class BagBaseItem : MonoBehaviour, IPointerClickHandler
     public void openItemUI()
     {
         ItemManager itemManager = ItemManager.Instance;
-        itemManager.updateItemUI(gameObject, true);
+        itemManager.updateItemUI(gameObject, true, needScaleUp);
     }
 
     // 更改当前背包item信息，如果正在展示当前item，那么同步更改展示栏内容
@@ -50,8 +51,9 @@ public class BagBaseItem : MonoBehaviour, IPointerClickHandler
             itemSprite = sprite;
         }
         ItemManager itemManager = ItemManager.Instance;
-        if(firstTime) itemManager.updateItemUI(gameObject, true);
-        else itemManager.updateItemUI(gameObject, false);
+        if (firstTime) itemManager.updateItemUI(gameObject, true, needScaleUp);
+        else itemManager.updateItemUI(gameObject, false, needScaleUp);
+        
     }
 
     public virtual void destroy()
