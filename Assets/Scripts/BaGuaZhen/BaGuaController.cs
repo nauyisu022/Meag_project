@@ -20,7 +20,11 @@ public class BaGuaController : MonoBehaviour
         }
     }
 
-    public void itemClickFunc(string itemTag, GameObject obj) { }
+    public void itemClickFunc(string itemTag, GameObject obj) {
+        print("in itemClickFunc");
+        print($"itemTag: {itemTag}");
+        print($"obj: {obj}");
+    }
 
     // Start is called before the first frame update
     void Start()
