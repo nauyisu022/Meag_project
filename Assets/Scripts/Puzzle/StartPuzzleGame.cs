@@ -179,5 +179,57 @@ public class StartPuzzleGame : MonoBehaviour
                 }
             }
         }
+        CheckError();
+    }
+
+    //检查拼图是否错误的方法
+    bool CheckError()
+    {
+        //遍历所有拼图碎片物体
+        for (int i = 0; i < pieces.Length; i++)
+        {
+            //获取Piece脚本
+            Piece piece = pieces[i].GetComponent<Piece>();
+
+            //如果有一个拼图碎片物体的当前位置和正确位置不同，则继续检查
+            if (!piece.IsCorrect())
+            {
+                //定义一个布尔变量，用来记录是否所有拼图碎片物体都已经被移动到网格上
+                bool allOnGrid = true;
+                //遍历所有拼图碎片物体
+                for (int j = 0; j < pieces.Length; j++)
+                {
+                    //获取Piece脚本
+                    Piece piece2 = pieces[j].GetComponent<Piece>();
+                    //如果有一个拼图碎片物体的当前位置和初始位置相同，则表示它还没有被移动到网格上，将布尔变量设为false，并跳出循环
+                    if (piece2.currentPosition == piece2.initPosition)
+                    {
+                        allOnGrid = false;
+                        break;
+                    }
+                }
+                //如果所有拼图碎片物体都已经被移动到网格上，则表示拼图错误，输出提示信息，并将所有拼图碎片物体还原到初始位置，返回false
+                if (allOnGrid)
+                {
+                    Debug.Log("拼图错误，请重新拼图。");
+                    for (int k = 0; k < pieces.Length; k++)
+                    {
+                        //获取Piece脚本
+                        Piece piece3 = pieces[k].GetComponent<Piece>();
+                        //将拼图碎片物体移动到初始位置，并更新其Piece脚本中的当前位置信息
+                        pieces[k].transform.position = piece3.initPosition;
+                        piece3.currentPosition = piece3.initPosition;
+                    }
+                    return false;
+                }
+                //否则，表示拼图还没有完成，返回false
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        //如果所有拼图碎片物体的当前位置和正确位置都相同，则表示拼图正确，返回true
+        return true;
     }
 }
