@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3776,6 +3776,7 @@ GameObject:
   - component: {fileID: 1374756534}
   - component: {fileID: 1374756536}
   - component: {fileID: 1374756537}
+  - component: {fileID: 1374756538}
   m_Layer: 0
   m_Name: "\u516B\u5366\u9635"
   m_TagString: Untagged
@@ -3876,6 +3877,18 @@ MonoBehaviour:
   itemTag: 
   button: {fileID: 367694490}
   text: {fileID: 870499282}
+--- !u!114 &1374756538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374756533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04905ecb982e76248b720045ae188e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1382253504
 GameObject:
   m_ObjectHideFlags: 0
@@ -3905,7 +3918,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f019f6a4597504e995e0d7a4cc8a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleCnt: 0
   play8Stage: 0
+  in8Stage: 0
   passwordIsCorrect: 0
   puzzleIsCorrect: 0
   jumpToClassroom: 0
