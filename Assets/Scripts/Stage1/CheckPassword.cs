@@ -22,7 +22,7 @@ public class CheckPassword : MonoBehaviour
     }
     public void End_Value(string input)
     {
-        if(input == "2197")
+        if(input == "3197")
         {
             correctText.SetActive(true);
             Invoke("UnshowCorrectText", 1.0f);
@@ -52,5 +52,10 @@ public class CheckPassword : MonoBehaviour
     {
         //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         SceneManager.Instance.passwordIsCorrect = true;
+        Invoke("Back", 2.0f);
+    }
+    void Back()
+    {
+        CameraManager.Instance.switchCamera("Àﬁ…·Camera");
     }
 }

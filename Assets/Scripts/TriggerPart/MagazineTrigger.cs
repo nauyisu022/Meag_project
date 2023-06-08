@@ -50,10 +50,15 @@ public class MagazineTrigger : BagBaseItem
             if (stage1to2 == false)
             {
                 updateItemInfo(_tag, _name, _description, checkText2, image2, false);
+                Invoke("TurnToClassroom", 10.0f);
                 stage1to2 = true;
             }
 
         }
 
+    }
+    void TurnToClassroom()
+    {
+        CameraManager.Instance.switchCamera("ΩÃ “Camera");
     }
 }
