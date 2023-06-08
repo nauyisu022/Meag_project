@@ -34,8 +34,8 @@ public class AwakeScreenEffect : MonoBehaviour
         progress = 0.0f;
     }
     void Update()
-    {
-        if(SceneManager.Instance.jumpToClassroom == false)
+    {  
+        if(SceneManager.Instance != null && SceneManager.Instance.jumpToClassroom == false)
         {
             if(notPlay)
             {

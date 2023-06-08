@@ -17,6 +17,7 @@ public class StartPuzzleGame : MonoBehaviour
     //当前选中的拼图碎片物体
     public GameObject selectedPiece;
 
+
     void Start()
     {
         Debug.Log("Start...");
