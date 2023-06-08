@@ -1551,6 +1551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 570788381}
+  - component: {fileID: 570788382}
   m_Layer: 0
   m_Name: "\u516B\u5366\u7269\u4F53\u6446\u653E\u4F4D\u7F6E"
   m_TagString: Untagged
@@ -1577,6 +1578,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &570788382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570788380}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df6217275f42b744cb1e0b8306f54d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionLoader: {fileID: 0}
+  children: []
+  pieces: []
+  isSuccess: 0
+  selectedPiece: {fileID: 0}
 --- !u!1 &597346859
 GameObject:
   m_ObjectHideFlags: 0
@@ -5772,7 +5790,7 @@ MonoBehaviour:
   - {fileID: 959863241}
   - {fileID: 209860166}
   - {fileID: 336553972}
-  curIndex: 4
+  curIndex: 3
   currentCamera: {fileID: 0}
 --- !u!4 &1919781470
 Transform:
