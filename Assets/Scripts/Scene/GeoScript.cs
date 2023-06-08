@@ -9,6 +9,7 @@ public class GeoScript : SceneBaseItem
     public List<GameObject> prefabList = new List<GameObject>();
     private GameObject prefab;
     // 是否是左边物品栏的物品
+    public List<bool> isGoalItemList;
     public bool isGoalItem;
     // 放到背包里的函数
     public void putIntoBag()
@@ -24,8 +25,10 @@ public class GeoScript : SceneBaseItem
     public virtual void preHandle()
     {
         prefab = prefabList[0];
+        isGoalItem = isGoalItemList[0];
         putIntoBag();
         prefab = prefabList[1];
+        isGoalItem = isGoalItemList[1];
     }
     public virtual void destroy()
     {
