@@ -52,7 +52,9 @@ public class CheckPassword : MonoBehaviour
     {
         //TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         SceneManager.Instance.passwordIsCorrect = true;
-        Invoke("Back", 2.0f);
+        SceneManager.Instance.jumpToClassroom = true;
+        CameraManager.Instance.switchCamera("Àﬁ…·Camera");
+        //Invoke("Back", 2.0f);
     }
     void Back()
     {

@@ -18,7 +18,7 @@ public class DiaryCheck : SceneBaseItem
             text.GetComponent<Text>().text = "没有电子产品的高中生才会使用的日记本，十年前的小卖部里就有这样的款式了，简单的密码锁藏着简单的心事。";
             Invoke("CloseText", 1.5f);
         }
-        else if (ItemManager.Instance.objMap.ContainsKey("花岗岩") && ItemManager.Instance.objMap.ContainsKey("地球仪") && ItemManager.Instance.objMap.ContainsKey("国家地理杂志"))
+        else if (ItemManager.Instance.objMap.ContainsKey("花岗岩") && ItemManager.Instance.objMap.ContainsKey("地球仪") && ItemManager.Instance.objMap.ContainsKey("国家地理杂志") && ItemManager.Instance.objMap.ContainsKey("冰箱贴"))
         {
             text.SetActive(true);
             text.GetComponent<Text>().text = "也许我已经知道了答案是什么… ";
